@@ -15,7 +15,7 @@ public class ATM
         ATM myATM = new ATM();
         myATM.accountsMenu();
         
-        myATM.saveAccount();
+        //myATM.saveAccount();
     }
 
     public void accountsMenu() throws IOException
@@ -61,10 +61,10 @@ public class ATM
         
         try
         {
-            FileInputStream inStream = new FileInputStream("C:/test.txt");
-            ObjectInputStream is = new ObjectInputStream(inStream);
-            accounts = (Account[]) is.readObject();
-            is.close();
+            FileInputStream inStream = new FileInputStream("test.txt");
+            ObjectInputStream ois = new ObjectInputStream(inStream);
+            accounts = (Account[]) ois.readObject();
+            ois.close();
         }
         catch(Exception ioe)
         {
@@ -122,17 +122,17 @@ public class ATM
 
     public void saveAccount()
     {
-        System.out.println("\nSave account");
+        System.out.println("\nSave account\n");
         try
         {
             FileOutputStream outStream = new FileOutputStream("test.txt");
-            ObjectOutputStream os = new ObjectOutputStream(outStream);
-            os.writeObject(accounts);
-            os.flush();
-            os.close();
+            ObjectOutputStream oos = new ObjectOutputStream(outStream);
+            oos.writeObject(accounts);
+            oos.flush();
+            oos.close();
         }
         catch(IOException ioe)
         {
-            System.out.print("Exception");
+            System.out.println("Exception");
         }
 } 

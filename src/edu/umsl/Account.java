@@ -9,13 +9,12 @@ public class Account implements Serializable
 {
     protected double balance = 100, rate; 
     protected int date1, date2;
-    protected Calendar cal1 = new GregorianCalendar();
-    protected Calendar cal2 = new GregorianCalendar();
+    protected Calendar cal1, cal2 = new GregorianCalendar();
+    //protected Calendar cal2 = new GregorianCalendar();
     protected Boolean dateflag = false; //field
     //private String acctName; 
     static Scanner sc = new Scanner(System.in); //don't need to create new scanner each time
     
-    //Scanner sc = new Scanner(System.in);
     //public Account(){}  //constructor (always has same name as class & doesnt have a return type)
    
     public void menu() throws IOException //only method that needs to be public
@@ -48,7 +47,7 @@ public class Account implements Serializable
                             date1(); 
                         }
                        deposit();
-                    break;
+                        break;
                 case 2:
                     if (dateflag == true)
                         {
@@ -60,7 +59,7 @@ public class Account implements Serializable
                             date1();
                         }
                        withdraw();
-                    break;
+                        break;
                 case 3:
                     if (dateflag == true)
                         {
@@ -72,7 +71,7 @@ public class Account implements Serializable
                             date1(); 
                         }
                        checkBalance();
-                    break;
+                        break;
                 case 4:
                     System.out.println("Goodbye.");
                     System.exit(0);
@@ -86,6 +85,7 @@ public class Account implements Serializable
     
     public void deposit() throws IOException
     {
+        calcInterest();
         double deposit;
         //Scanner sc = new Scanner(System.in);
 
@@ -160,8 +160,8 @@ public class Account implements Serializable
         ParsePosition pos = new ParsePosition(0);
         //Date date= new Date();
         Date date = formatter.parse(inputText, pos);
-        cal1.setTime(date);
-        date2 = cal1.get(Calendar.DAY_OF_YEAR);
+        cal2.setTime(date);
+        date2 = cal2.get(Calendar.DAY_OF_YEAR);
         dateflag = true;
       
         if(date1 > date2)
