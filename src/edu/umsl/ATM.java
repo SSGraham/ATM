@@ -6,15 +6,16 @@ import java.util.*;
 
 public class ATM 
 {
+    //create array of 3 accounts
+    Account[] accounts = new Account[3]; 
     
-    Account[] accounts = new Account[3]; //I created the array of accounts here
     
     public static void main(String[] args) throws IOException
     {
         ATM myATM = new ATM();
         myATM.accountsMenu();
         
-        //myATM.saveAccount();
+        myATM.saveAccount();
     }
 
     public void accountsMenu() throws IOException
@@ -60,7 +61,7 @@ public class ATM
         
         try
         {
-            FileInputStream inStream = new FileInputStream("test.txt");
+            FileInputStream inStream = new FileInputStream("C:/test.txt");
             ObjectInputStream is = new ObjectInputStream(inStream);
             accounts = (Account[]) is.readObject();
             is.close();
@@ -73,9 +74,11 @@ public class ATM
 
     public void populateAccts() throws IOException
     {
+        //loop through array creating 3 accounts
         for(int i =0; i < accounts.length; i++)
             {  
                 accounts[i] = new Account();
+                System.out.println(accounts[i]);
                 
             }
     
