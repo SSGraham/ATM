@@ -37,18 +37,21 @@ public class Account implements Serializable
             switch (choice)
             {
                 case 1:
+                    System.out.println("\nCurrent balance: " + calcBalance() );
                     if (dateflag == true)
                         {
                             date2();
-                            calcInterest();                
+                            calcInterest();
+                            deposit();
                         }
                         else
                         {
-                            date1(); 
-                        }
-                       deposit();
+                            date1();
+                            deposit();
+                        }                      
                         break;
                 case 2:
+                    System.out.println("Current balance: " + calcBalance() );
                     if (dateflag == true)
                         {
                             date2();
@@ -61,6 +64,7 @@ public class Account implements Serializable
                        withdraw();
                         break;
                 case 3:
+                    System.out.println("Your current balance is : " + calcBalance() );
                     if (dateflag == true)
                         {
                             date2();
@@ -70,7 +74,7 @@ public class Account implements Serializable
                         {
                             date1(); 
                         }
-                       checkBalance();
+                       calcBalance();
                         break;
                 case 4:
                     System.out.println("Goodbye.");
@@ -92,7 +96,7 @@ public class Account implements Serializable
         System.out.println("Enter the amount you would like to deposit: ");
         deposit = sc.nextDouble();
 
-        balance = formatBalance() + deposit; 
+        balance = calcBalance() + deposit; 
         System.out.println(deposit + "has been desposited into your account.\n"
                             + "Your current balance is: " + balance);
     }
@@ -106,20 +110,21 @@ public class Account implements Serializable
                             + "(must be in multiples of $10.00)");
         withdraw = sc.nextDouble();
 
-        balance = formatBalance() - withdraw;
+        balance = calcBalance() - withdraw;
         System.out.println(withdraw + "has been deducted from your account.\n"
                             + "Your current balance is: " + balance);
     }
     
-    public void checkBalance() 
-    {
+    //moved this to switch case
+    //public void checkBalance() 
+    //{
         //display current balance for user
         //display as US currency 
-        System.out.println("Your current balance is: " + balance);
+        //System.out.println("Your current balance is: " + balance);
 
-    }
+    //}
     
-    public double formatBalance() throws IOException
+    public double calcBalance() throws IOException
     {
         NumberFormat currencyFormatter;
         String strBalance;
@@ -162,7 +167,7 @@ public class Account implements Serializable
         Date date = formatter.parse(inputText, pos);
         cal2.setTime(date);
         date2 = cal2.get(Calendar.DAY_OF_YEAR);
-        dateflag = true;
+        //dateflag = true;
       
         if(date1 > date2)
         {
