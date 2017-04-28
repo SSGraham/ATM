@@ -9,8 +9,8 @@ public class Account implements Serializable
 {
     protected double balance = 100, rate; 
     protected int date1, date2;
-    protected Calendar cal1, cal2 = new GregorianCalendar();
-    //protected Calendar cal2 = new GregorianCalendar();
+    protected Calendar cal1 = new GregorianCalendar();
+    protected Calendar cal2 = new GregorianCalendar();
     protected Boolean dateflag = false; //field
     //private String acctName; 
     static Scanner sc = new Scanner(System.in); //don't need to create new scanner each time
@@ -37,44 +37,44 @@ public class Account implements Serializable
             switch (choice)
             {
                 case 1:
-                    System.out.println("\nCurrent balance: " + calcBalance() );
+                    System.out.println("\nCurrent balance: $" + calcBalance() );
                     if (dateflag == true)
                         {
-                            date2();
+                            getDate2();
                             calcInterest();
                             deposit();
                         }
                         else
                         {
-                            date1();
+                            getDate1();
                             deposit();
                         }                      
                         break;
                 case 2:
-                    System.out.println("Current balance: " + calcBalance() );
+                    System.out.println("Current balance: $" + calcBalance() );
                     if (dateflag == true)
                         {
-                            date2();
+                            getDate2();
                             calcInterest();                
                         }
                         else
                         {
-                            date1();
+                            getDate1();
                         }
                        withdraw();
                         break;
                 case 3:
-                    System.out.println("Your current balance is : " + calcBalance() );
-                    if (dateflag == true)
-                        {
-                            date2();
-                            calcInterest();                
-                        }
-                        else
-                        {
-                            date1(); 
-                        }
-                       calcBalance();
+                    System.out.println("Your current balance is: $" + calcBalance() );
+                    //if (dateflag == true)
+                        //{
+                            //getDate2();
+                            //calcInterest();                
+                        //}
+                        //else
+                        //{
+                            //getDate1(); 
+                        //}
+                       //calcBalance();
                         break;
                 case 4:
                     System.out.println("Goodbye.");
@@ -97,7 +97,7 @@ public class Account implements Serializable
         deposit = sc.nextDouble();
 
         balance = calcBalance() + deposit; 
-        System.out.println(deposit + "has been desposited into your account.\n"
+        System.out.println("$" + deposit + " has been desposited into your account.\n"
                             + "Your current balance is: " + balance);
     }
     
@@ -111,7 +111,7 @@ public class Account implements Serializable
         withdraw = sc.nextDouble();
 
         balance = calcBalance() - withdraw;
-        System.out.println(withdraw + "has been deducted from your account.\n"
+        System.out.println("$" + withdraw + " has been deducted from your account.\n"
                             + "Your current balance is: " + balance);
     }
     
@@ -144,7 +144,7 @@ public class Account implements Serializable
         date1 = date2;       
     }
 
-    private void date1()throws IOException
+    private void getDate1()throws IOException
     {
         System.out.print("Enter todays date(mm/dd/yyyy): ");
         String inputText = sc.next( );
@@ -157,7 +157,7 @@ public class Account implements Serializable
         dateflag = true;
     }
 
-    private void date2() throws IOException
+    private void getDate2() throws IOException
     {      
         System.out.print("Enter todays date(mm/dd/yyyy): ");
         String inputText = sc.next( );
@@ -167,12 +167,12 @@ public class Account implements Serializable
         Date date = formatter.parse(inputText, pos);
         cal2.setTime(date);
         date2 = cal2.get(Calendar.DAY_OF_YEAR);
-        //dateflag = true;
+        dateflag = true;
       
         if(date1 > date2)
         {
             System.out.println("Nice try. Enter a valid date.");
-            date2();
+            getDate2();
         }
     }
 }
