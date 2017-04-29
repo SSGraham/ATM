@@ -26,11 +26,12 @@ public class ATM
         do{
             System.out.println("\n**************WELCOME MENU************");
             System.out.println("Please choose from the following menu:");
-            System.out.println("***************************************\n");
-            //System.out.println("     1 - Populate new accounts");
+            System.out.println("***************************************");
+            //removed populate accounts option, moved it up under main
+            //System.out.println("     1 - Populate new accounts"); 
             System.out.println("     1 - Select an account");
             System.out.println("     2 - Exit\n");
-            System.out.println("\n***************************************\n");
+            System.out.println("***************************************\n");
             choice = sc.nextInt();
           
             switch (choice)
@@ -57,6 +58,7 @@ public class ATM
     {
         for(int i = 0; i < myAccounts.length; i++)
         {
+            //each account gets $100 beginning balance
             myAccounts[i] = new Account(100.00);
             System.out.println(myAccounts[i]);
         }
@@ -79,12 +81,12 @@ public class ATM
         {              
             System.out.println("\n*************ACCOUNTS MENU*************");
             System.out.println("Select an account: ");
-            System.out.println("***************************************\n");
+            System.out.println("***************************************");
             System.out.println("     0 - Account #0");
             System.out.println("     1 - Account #1");
             System.out.println("     2 - Account #2");
             System.out.println("     3 - Exit to welcome menu\n");
-            System.out.println("\n***************************************\n");
+            System.out.println("***************************************");
                                   
             choice = sc.nextInt();
             

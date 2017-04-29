@@ -14,10 +14,10 @@ public class Account
     private final Calendar cal2 = new GregorianCalendar();       
     static Scanner sc = new Scanner(System.in);
     
-    
-	public Account (double beg_balance) throws IOException 
+        //constructor
+	public Account (double beginBalance) throws IOException 
         {
-		balance = beg_balance;
+		balance = beginBalance;
 	 
         }
         
@@ -29,12 +29,12 @@ public class Account
             {
                 System.out.println("\n***************MAIN MENU***************");
                 System.out.println("Please choose from the following menu:");
-                System.out.println("***************************************\n");
+                System.out.println("***************************************");
                 System.out.println("     1 - Deposit");
                 System.out.println("     2 - Withdraw");
                 System.out.println("     3 - Balance inquiry");
                 System.out.println("     4 - Select a different account");
-                System.out.println("\n***************************************\n");
+                System.out.println("***************************************");
                 
                 choice = sc.nextInt();
                 
@@ -75,7 +75,7 @@ public class Account
                         //System.out.println();
                         if(dateflag == true)
                         {
-                            //getDate2();
+                            getDate2();
                             calcInterest();
                             System.out.println("\nYour current balance is: " + getBalance());
                             menu();
@@ -119,7 +119,7 @@ public class Account
         {		
 		String deposit;
 
-                System.out.println("\n**********MAKE A DEPOSIT**********\n");
+                System.out.println("\n**********MAKE A DEPOSIT**********");
                 System.out.println("Your current balance is " + getBalance());
                 System.out.print("Enter the amount you would like to deposit: ");
                 
@@ -137,7 +137,7 @@ public class Account
         {
 		String withdraw;
 
-		System.out.println("\n*********MAKE A WITHDRAWAL*********\n");
+		System.out.println("\n*********MAKE A WITHDRAWAL*********");
                 System.out.println("Your current balance is " + getBalance());
                 System.out.print("Enter the amount you would like to withdraw: ");
                 
