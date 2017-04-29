@@ -33,7 +33,7 @@ public class Account
                 System.out.println("     1 - Deposit");
                 System.out.println("     2 - Withdraw");
                 System.out.println("     3 - Balance inquiry");
-                System.out.println("     4 - Select a different account");
+                System.out.println("     4 - Select a different account or exit");
                 System.out.println("***************************************");
                 
                 choice = sc.nextInt();

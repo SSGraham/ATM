@@ -8,6 +8,7 @@ public class ATM
     //set up array of 3 accounts
     Account myAccounts[] = new Account[3];   
     static Scanner sc = new Scanner(System.in);
+    private String path;
     
     public static void main(String args[]) throws IOException
     {
@@ -43,6 +44,7 @@ public class ATM
                     selectAcct();
                     break;
                 case 2:
+                    //atm.saveAcct();
                     System.out.println("\n\n\n\n***Thank you***");
                     System.out.println("****Goodbye****\n\n\n\n");
                     System.exit(0);
@@ -67,6 +69,7 @@ public class ATM
 
     public void loadAccts()
     {
+        
     } 
 
     public void saveAcct()
