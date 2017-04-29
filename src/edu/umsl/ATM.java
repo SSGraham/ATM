@@ -3,136 +3,124 @@ package edu.umsl;
 import java.io.*;
 import java.util.*;
 
-
 public class ATM 
 {
-    //create array of 3 accounts
-    Account[] accounts = new Account[3]; 
+    //set up array of 3 accounts
+    Account myAccounts[] = new Account[3];   
+    static Scanner sc = new Scanner(System.in);
     
-    
-    public static void main(String[] args) throws IOException
+    public static void main(String args[]) throws IOException
     {
-        ATM myATM = new ATM();
-        myATM.accountsMenu();
-        
-        //myATM.saveAccount();
+
+        ATM atm = new ATM();
+        //auto-populate 3 accounts
+        atm.populateAccts();        
+        atm.loadAccts();
+        atm.welcomeMenu();        
     }
 
-    public void accountsMenu() throws IOException
+    public void welcomeMenu() throws IOException
     {
         int choice;
-        Scanner sc = new Scanner(System.in);
         
-        do {
-            System.out.println("*****************WELCOME*****************"
-                                +"\nPlease choose from the following menu:"
-                                +"\n*****************************************"
-                                + "\n1 - Load Accounts"
-                                + "\n2 - Populate Accounts"
-                                + "\n3 - Select an Account"                  
-                                + "\n4 - Exit");
-                choice = sc.nextInt(); 
-                
-                switch (choice)
-                {
-                    case 1: 
-                        loadAcct();
-                        break;
-                    case 2:
-                        populateAccts();
-                        break;
-                    case 3:
-                        selectAcct();
-                        break;                
-                    case 4:
-                        System.out.println("Goodbye.");
-                        System.exit(0);
-                    default:
-                        System.out.println("Invalid. Try again.");
-                        accountsMenu();
-                }
-            } while (choice >= 1 && choice <=4);
+        do{
+            System.out.println("\n**************WELCOME MENU************");
+            System.out.println("Please choose from the following menu:");
+            System.out.println("***************************************\n");
+            //System.out.println("     1 - Populate new accounts");
+            System.out.println("     1 - Select an account");
+            System.out.println("     2 - Exit\n");
+            System.out.println("\n***************************************\n");
+            choice = sc.nextInt();
+          
+            switch (choice)
+            {
+//                case 1:
+//                    populateAccts();
+//                    break;
+                case 1:
+                    selectAcct();
+                    break;
+                case 2:
+                    System.out.println("\n\n\n\n***Thank you***");
+                    System.out.println("****Goodbye****\n\n\n\n");
+                    System.exit(0);
+                default:
+                    System.out.println("Invalid. Try again.");
+                    welcomeMenu();
+            }
         
-    }                
-   
-
-    public void loadAcct()
-    {
-        
-        try
-        {
-            FileInputStream inStream = new FileInputStream("test.txt");
-            ObjectInputStream ois = new ObjectInputStream(inStream);
-            accounts = (Account[]) ois.readObject();
-            ois.close();
-        }
-        catch(Exception ioe)
-        {
-            System.out.println(ioe.getMessage());
-        }
+        }while (choice >= 1 && choice<=2);
     }
-
+    
     public void populateAccts() throws IOException
     {
-        //loop through array creating 3 accounts
-        for(int i =0; i < accounts.length; i++)
-            {  
-                accounts[i] = new Account();
-                System.out.println(accounts[i]);
-                
-            }
-    
+        for(int i = 0; i < myAccounts.length; i++)
+        {
+            myAccounts[i] = new Account(100.00);
+            System.out.println(myAccounts[i]);
+        }
+
+    }
+
+    public void loadAccts()
+    {
+    } 
+
+    public void saveAcct()
+    {
     }
 
     public void selectAcct() throws IOException
-    {
-        int choice; 
-        Scanner sc = new Scanner(System.in);
+    {           
+        int choice;
         
         do
-        {
-            System.out.println("*******ACCOUNTS MENU*******\n"
-                                +"    Select an account:\n"
-                                +"***************************\n"
-                                +"0: Account 0\n"
-                                +"1: Account 1\n"
-                                +"2: Account 2\n"
-                                +"3: Exit");
+        {              
+            System.out.println("\n*************ACCOUNTS MENU*************");
+            System.out.println("Select an account: ");
+            System.out.println("***************************************\n");
+            System.out.println("     0 - Account #0");
+            System.out.println("     1 - Account #1");
+            System.out.println("     2 - Account #2");
+            System.out.println("     3 - Exit to welcome menu\n");
+            System.out.println("\n***************************************\n");
+                                  
             choice = sc.nextInt();
             
             switch(choice)
             {
                 case 0:
-                    accounts[choice].menu();
+                {
+                    System.out.println(myAccounts[choice]);
+                    myAccounts[choice].menu();
                     break;
-                case 1:
-                    accounts[choice].menu();
+                }
+                case 1: 
+                {
+                    //myAccounts[choice].thisAcct = this;
+                    System.out.println(myAccounts[choice]);
+                    myAccounts[choice].menu();
                     break;
+                }
                 case 2:
-                    accounts[choice].menu();
+                {
+                    //myAccounts[choice].thisAcct = this;
+                    System.out.println(myAccounts[choice]);
+                    myAccounts[choice].menu();
                     break;
+                }
                 case 3:
-                    System.out.println("Goodbye.");
-                    System.exit(0);
+                {
+                    System.out.println("\nExiting to welcome menu....\n");
+                    welcomeMenu();
+                }
                 default:
-                    System.out.println("Invalid selection. Please try again.");
-            }
-        }while (choice >=1 && choice<= 4);
+                    System.out.println("Invalid. Try again.");
+                    selectAcct();
+            }   
+        }while (choice >= 0 && choice <= 3);        
+                       
     }
 
-    public void saveAccount()
-    {
-        System.out.println("\nSave account\n");
-        try
-        {
-            FileOutputStream outStream = new FileOutputStream("test.txt");
-            ObjectOutputStream oos = new ObjectOutputStream(outStream);
-            oos.writeObject(accounts);
-            oos.flush();
-            oos.close();
-        }
-        catch(IOException ioe)
-        {
-            System.out.println("Exception");
-        }
-} 
+}
