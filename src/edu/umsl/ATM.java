@@ -30,7 +30,7 @@ public class ATM
             //removed populate accounts option, moved it up under main
             //System.out.println("     1 - Populate new accounts"); 
             System.out.println("     1 - Select an account");
-            System.out.println("     2 - Exit\n");
+            System.out.println("     2 - Exit");
             System.out.println("***************************************\n");
             choice = sc.nextInt();
           
@@ -85,7 +85,7 @@ public class ATM
             System.out.println("     0 - Account #0");
             System.out.println("     1 - Account #1");
             System.out.println("     2 - Account #2");
-            System.out.println("     3 - Exit to welcome menu\n");
+            System.out.println("     3 - Exit to welcome menu");
             System.out.println("***************************************");
                                   
             choice = sc.nextInt();

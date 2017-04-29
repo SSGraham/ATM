@@ -54,6 +54,7 @@ public class Account
                             getDate1();
                             deposit();
                         }
+                        break;
                     }
                     case 2:
                     {
@@ -69,6 +70,7 @@ public class Account
                             getDate1();
                             withdraw();
                         }
+                        break;
                     }
                     case 3:
                     {
@@ -78,20 +80,19 @@ public class Account
                             getDate2();
                             calcInterest();
                             System.out.println("\nYour current balance is: " + getBalance());
-                            menu();
+                            //menu();
                         }
                         else
                         {
                             getDate2();
                             calcInterest();
                             System.out.println("\nYour current balance is: " + getBalance());
-                            menu();
+                            //menu();
                         }
+                        break;
                     }
-                    case 4:
-                    {
-                        return;
-                    }
+                    case 4:                  
+                        return;                    
                     default:
                     {
                         System.out.println("Invalid. Try again.");
@@ -130,7 +131,7 @@ public class Account
                 
                 System.out.println("\n $" + depositAmount + " has been deposited to your account.");
                 System.out.println("Your new balance is " + getBalance());   
-                menu();
+                //menu();
 	} 	
 
 	private void withdraw() throws IOException 
@@ -148,7 +149,7 @@ public class Account
                 
                 System.out.println("\n $" + wdrawAmount + " has been deducted from your account.");
                 System.out.println("Your new balance is " + getBalance());
-                menu();
+                //menu();
         }
                 
         
