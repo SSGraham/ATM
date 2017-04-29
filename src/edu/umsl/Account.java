@@ -14,7 +14,7 @@ public class Account
     private final Calendar cal2 = new GregorianCalendar();       
     static Scanner sc = new Scanner(System.in);
     
-        //constructor
+        //account constructor
 	public Account (double beginBalance) throws IOException 
         {
 		balance = beginBalance;

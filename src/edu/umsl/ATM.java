@@ -100,14 +100,12 @@ public class ATM
                 }
                 case 1: 
                 {
-                    //myAccounts[choice].thisAcct = this;
                     System.out.println(myAccounts[choice]);
                     myAccounts[choice].menu();
                     break;
                 }
                 case 2:
-                {
-                    //myAccounts[choice].thisAcct = this;
+                {                   
                     System.out.println(myAccounts[choice]);
                     myAccounts[choice].menu();
                     break;
