@@ -91,25 +91,24 @@ public class ATM
             choice = sc.nextInt();
             
             switch(choice)
-            {
                 case 0:
                 {
                     System.out.println(myAccounts[choice]);
-                    myAccounts[choice].menu();
+                    myAccounts[choice].pinZero();
                     break;
                 }
                 case 1: 
                 {
                     //myAccounts[choice].thisAcct = this;
                     System.out.println(myAccounts[choice]);
-                    myAccounts[choice].menu();
+                    myAccounts[choice].pinOne();
                     break;
                 }
                 case 2:
                 {
                     //myAccounts[choice].thisAcct = this;
                     System.out.println(myAccounts[choice]);
-                    myAccounts[choice].menu();
+                    myAccounts[choice].pinTwo();
                     break;
                 }
                 case 3:
