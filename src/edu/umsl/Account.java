@@ -20,6 +20,56 @@ public class Account
 		balance = beginBalance;
 	 
         }
+	        public void pinZero() throws IOException
+        {
+            int pin;
+            System.out.println("Please enter your 4 digit pin.");
+            pin = sc.nextInt();
+            
+            if(pin == 1234)
+            {
+                menu();
+            }
+            else
+            {
+                System.out.println("Invalid pin.");
+
+            }
+            
+        }
+        public void pinOne() throws IOException
+        {
+            int pin;
+            System.out.println("Please enter your 4 digit pin.");
+            pin = sc.nextInt();
+            
+            if(pin == 4321)
+            {
+                menu();
+            }
+            else
+            {
+                System.out.println("Invalid pin.");
+
+            }
+            
+        }
+        public void pinTwo() throws IOException
+        {
+            int pin;
+            System.out.println("Please enter your 4 digit pin.");
+            pin = sc.nextInt();
+            
+            if(pin == 2134)
+            {
+                menu();
+            }
+            else
+            {
+                System.out.println("Invalid pin.");
+
+            }
+        }
         
         public void menu()throws IOException
         {
