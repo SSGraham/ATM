@@ -4,7 +4,7 @@ import java.io.*;
 import java.text.*;
 import java.util.*;
 
-public class Account 
+public class Account //implements Serializable
 {
 
     private double balance, rate;  
@@ -32,8 +32,8 @@ public class Account
                 System.out.println("***************************************");
                 System.out.println("     1 - Deposit");
                 System.out.println("     2 - Withdraw");
-                System.out.println("     3 - Balance inquiry");
-                System.out.println("     4 - Select a different account or exit");
+                System.out.println("     3 - Balance Inquiry");
+                System.out.println("     4 - Select a Different Account or Exit");
                 System.out.println("***************************************");
                 
                 choice = sc.nextInt();
@@ -73,6 +73,8 @@ public class Account
                         break;
                     }
                     case 3:
+    //I can take out the if/else here since they're doing the same thing
+    //leaving it for now to make sure interest is calculating correctly for bal inquiry
                     {
                         //System.out.println();
                         if(dateflag == true)
@@ -80,14 +82,13 @@ public class Account
                             getDate2();
                             calcInterest();
                             System.out.println("\nYour current balance is: " + getBalance());
-                            //menu();
                         }
                         else
                         {
+                            //getDate1();
                             getDate2();
                             calcInterest();
                             System.out.println("\nYour current balance is: " + getBalance());
-                            //menu();
                         }
                         break;
                     }
@@ -136,20 +137,22 @@ public class Account
 
 	private void withdraw() throws IOException 
         {
-		String withdraw;
+            //for something extra: add an if to make sure enough funds available for wdraw
+            String withdraw;
 
-		System.out.println("\n*********MAKE A WITHDRAWAL*********");
-                System.out.println("Your current balance is " + getBalance());
-                System.out.print("Enter the amount you would like to withdraw: ");
-                
-		withdraw = sc.next();
-		double wdrawAmount = Double.parseDouble(withdraw);
-		
-		balance = balance - wdrawAmount;
-                
-                System.out.println("\n $" + wdrawAmount + " has been deducted from your account.");
-                System.out.println("Your new balance is " + getBalance());
-                //menu();
+            System.out.println("\n*********MAKE A WITHDRAWAL*********");
+            System.out.println("Your current balance is " + getBalance());
+            System.out.print("Enter the amount you would like to withdraw: ");
+
+            withdraw = sc.next();
+            double wdrawAmount = Double.parseDouble(withdraw);
+            
+            
+
+            balance = balance - wdrawAmount;
+
+            System.out.println("\n $" + wdrawAmount + " has been deducted from your account.");
+            System.out.println("Your new balance is " + getBalance());
         }
                 
         

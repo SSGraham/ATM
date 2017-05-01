@@ -18,7 +18,7 @@ public class ATM
         ATM atm = new ATM();
         //auto-populate 3 accounts
         atm.populateAccts();        
-        atm.loadAccts();
+        //atm.loadAccts();
         atm.welcomeMenu();        
     }
 
@@ -46,7 +46,7 @@ public class ATM
                     selectAcct();
                     break;
                 case 2:
-                    //atm.saveAcct();
+                    saveAcct();
                     System.out.println("\n\n\n\n***Thank you***");
                     System.out.println("****Goodbye****\n\n\n\n");
                     System.exit(0);
@@ -76,16 +76,17 @@ public class ATM
 
     public void saveAcct()
     {
-        try 
-        {
-            
-            
-        }catch (IOException ex) 
-        {
-            
-        }
-        
+        try{    
+            FileInputStream fin=new FileInputStream("D:\\testout.txt");    
+            int i=0;    
+            while((i=fin.read())!=-1){    
+             System.out.print((char)i);    
+            }    
+            fin.close();    
+          }catch(Exception e){System.out.println(e);}
     }
+        
+  
 
     public void selectAcct() throws IOException
     {           
