@@ -147,14 +147,20 @@ public class Account //implements Serializable
             withdraw = sc.next();
             double wdrawAmount = Double.parseDouble(withdraw);
             
-            
+            if(wdrawAmount > balance)
+            {
+                System.out.println("\nInsufficient funds.");              
+                withdraw();
+            }
+            else
+            {
+                balance = balance - wdrawAmount;
 
-            balance = balance - wdrawAmount;
-
-            System.out.println("\n $" + wdrawAmount + " has been deducted from your account.");
-            System.out.println("Your new balance is " + getBalance());
-        }
-                
+                System.out.println("\n $" + wdrawAmount + " has been deducted from your account.");
+                System.out.println("Your new balance is " + getBalance());
+                menu();
+            }
+        }    
         
         private void calcInterest()
         {

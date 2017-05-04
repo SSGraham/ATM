@@ -32,7 +32,7 @@ public class ATM
             System.out.println("***************************************");
             //removed populate accounts option, moved it up under main
             //System.out.println("     1 - Populate new accounts"); 
-            System.out.println("     1 - Select an account");
+            System.out.println("     1 - Select an Account");
             System.out.println("     2 - Exit");
             System.out.println("***************************************\n");
             choice = sc.nextInt();
@@ -47,7 +47,7 @@ public class ATM
                     break;
                 case 2:
                     saveAcct();
-                    System.out.println("\n\n\n\n***Thank you***");
+                    System.out.println("\n\n\n\n***Thank You***");
                     System.out.println("****Goodbye****\n\n\n\n");
                     System.exit(0);
                 default:
@@ -76,14 +76,7 @@ public class ATM
 
     public void saveAcct()
     {
-        try{    
-            FileInputStream fin=new FileInputStream("D:\\testout.txt");    
-            int i=0;    
-            while((i=fin.read())!=-1){    
-             System.out.print((char)i);    
-            }    
-            fin.close();    
-          }catch(Exception e){System.out.println(e);}
+        
     }
         
   
@@ -100,7 +93,7 @@ public class ATM
             System.out.println("     0 - Account #0");
             System.out.println("     1 - Account #1");
             System.out.println("     2 - Account #2");
-            System.out.println("     3 - Exit to welcome menu");
+            System.out.println("     3 - Exit to Welcome Menu");
             System.out.println("***************************************");
                                   
             choice = sc.nextInt();
@@ -127,7 +120,7 @@ public class ATM
                 }
                 case 3:
                 {
-                    System.out.println("\nExiting to welcome menu....\n");
+                    System.out.println("\nExiting to Welcome Menu....\n");
                     welcomeMenu();
                 }
                 default:
