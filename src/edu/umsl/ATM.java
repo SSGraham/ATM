@@ -2,15 +2,13 @@ package edu.umsl;
 
 import java.io.*;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ATM 
 {
     //set up array of 3 accounts
     Account myAccounts[] = new Account[3];   
     static Scanner sc = new Scanner(System.in);
-    private String path;
+    
     
     public static void main(String args[]) throws IOException
     {
@@ -69,16 +67,19 @@ public class ATM
 
     }
 
-    public void loadAccts()
-    {
-        
-    } 
-
-    public void saveAcct()
-    {
-        
-    }
-        
+//    public void loadAccts()
+//    {
+//        
+//    } 
+//
+//    public void saveAcct()
+//    {
+//        
+//    }
+    private void readObject(java.io.ObjectInputStream stream)
+    throws IOException, ClassNotFoundException;
+    private void writeObject(java.io.ObjectOutputStream stream)
+    throws IOException;
   
 
     public void selectAcct() throws IOException
