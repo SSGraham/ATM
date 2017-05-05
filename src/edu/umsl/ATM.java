@@ -67,20 +67,15 @@ public class ATM
 
     }
 
-//    public void loadAccts()
-//    {
-//        
-//    } 
-//
-//    public void saveAcct()
-//    {
-//        
-//    }
-    private void readObject(java.io.ObjectInputStream stream)
-    throws IOException, ClassNotFoundException;
-    private void writeObject(java.io.ObjectOutputStream stream)
-    throws IOException;
-  
+    public void loadAccts()
+    {
+        
+    } 
+
+    public void saveAcct()
+    {
+        
+    }
 
     public void selectAcct() throws IOException
     {           
